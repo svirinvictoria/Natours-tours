@@ -50,7 +50,7 @@ function Card() {
 
   const cardsPullReactElements = cardsPull.map((cardItem, index) => {
     return (
-      <div key={index} className="row">
+      <div key={index} className="row" >
         <div className="col-1-of-3">
           <div className="card">
             <div className="card__side card__side--front">

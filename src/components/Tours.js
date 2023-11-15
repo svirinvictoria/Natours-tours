@@ -8,9 +8,11 @@ function Tours() {
         <h2 className="heading-secondary">Most popular tours</h2>
       </div>
       <div className="row">
-        
+      {/* <div className="col-1-of-3">  */}
         <Card />
       </div>
+      
+      {/* </div> */}
 
 
       {/* <Card 
