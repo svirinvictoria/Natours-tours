@@ -1,0 +1,190 @@
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    z-index: 2000;
+    box-shadow: $shadow-dark;
+
+    //the hamburger button
+    text-align: center;//to center the button
+    cursor: pointer;
+
+    @include respond(tab-port){
+      top:4.5rem;
+      right: 4.5rem;
+    }
+
+    @include respond(phone){
+      top:3.5rem;
+      right: 3.5rem;
+    }
+
+  }
+
+  &__background {
+    //the background is a circle expanding from behid the round navigation button
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed; //it's similar to position absolute, but doesn`t change position as we scrowl the page
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    z-index: 1000;
+    //animation
+    transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+    @include respond(tab-port){
+      top:4.7rem;
+      right: 4.7rem;
+    }
+
+    @include respond(phone){
+      top:3.7rem;
+      right: 3.7rem;
+    }
+  }
+  &__nav {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    // background-color:red;
+    z-index: 1500;
+
+    //getting rid of the navigation
+    opacity: 0;
+    width: 0;
+
+    //animation
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  &__list {
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    @include centerHorizontalVertical; //calling mixin that centers the element
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+        display: inline-block;
+      padding: 1rem 2 rem;
+      font-size: 3rem;
+      font-weight: 300;
+      color: $color-white;
+      text-transform: uppercase;
+      text-decoration: none;
+
+      //solid color gradient under every menu line
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      //the gradient moves
+      background-size: 220%;
+      transition: all .5s;
+      span{
+        margin-right: 1.5rem;
+        display: inline-block;
+      }
+    }
+
+    &:hover,
+    &:active {
+        background-position: 100%;
+        color: $color-primary;
+        //the line slightly moves to the right
+        transform: translateX(2rem);
+    }
+  }
+
+  //FUNCTIONALITY
+  //making the navigation- background to appear again
+  &__checkbox:checked ~ &__background{
+    transform: scale(80);
+  }
+  //making the navigation- text to appear again
+  &__checkbox:checked ~ &__nav{
+    opacity: 1;
+    width: 100%;
+  }
+
+  //MENU BUTTON(HAMBURGER ICON)
+  &__icon{
+    position: relative;
+    margin-top: 3.5rem;//getting the hamburger icon to the center of the circle
+
+    &,
+    &::before,
+    &::after{
+        width: 3rem;
+        height: 2px;
+        background-color: $color-grey-dark-3;
+        display: inline-block;
+    }
+    &::before,
+    &::after{
+        //in order for the before and after pseudo elements to actually appear on the page,
+        //they need to have their content property defined and display set to inline-block.
+        content:"";
+        position: absolute;
+        left: 0;
+        transition: all .2s;
+
+
+    }
+    &::before{
+        top: -0.8rem;
+    }
+
+    &::after{
+        top: 0.8rem;
+    }
+  }
+
+  //make the hamburger icon larger when hovered 
+  &__button:hover &__icon::before{
+    top: -1rem
+  }
+
+  &__button:hover &__icon::after{
+    top: 1rem
+  }
+
+  //the middle line in hamburger icon disappears
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  //the upper & lower line in the hamburger rotate and create X 
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+
+}

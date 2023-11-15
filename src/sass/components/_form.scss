@@ -1,0 +1,108 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent; //an invisible border when NOT focused
+    width: 90%;
+    display: block;
+    transition: all .5s;
+
+    @include respond(tab-port){
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: $shadow-light;
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &:focus:invalid{
+        border-bottom: 3px solid $color-secondary-dark; 
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark2;
+    }
+  }
+
+  &__label{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+  }
+
+  &__input:placeholder-shown + &__label{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__radio-group{
+    width: 49%;
+    display: inline-block;
+
+    @include respond(tab-port){
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__radio-input{
+    display: none;
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4rem;
+  }
+
+  //this is the outer border of the green falsh button
+  &__radio-button{
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.4rem;
+
+    //styling the inner circle of the falsh button
+    &::after{
+      content:""; //every time we use a pseudo element we MUST use a content and the display property
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      background-color: $color-primary;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity .2s;
+
+      @include centerHorizontalVertical; //calling the mixin that centers the element
+    }
+  }
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+// as soon as we hit the label element, the radio-input becomes checked.
+// So we have this checked pseudo-class available to us.
+// we simply select the sibling of that one, and then the child
+// because that's the one that we want to change
+// each time that the radio input is selected.
+    opacity: 1;
+  }
+}

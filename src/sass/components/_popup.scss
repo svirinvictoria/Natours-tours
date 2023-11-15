@@ -1,0 +1,137 @@
+.popup {
+  background-color: rgba($color-black, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 5000;
+
+  //hiding popup
+  // display: none;//possible, but that's a bad option since we can't animate the popup
+  opacity: 0;
+  visibility: hidden; //the text and the content will still be there, but not visible
+
+  //animation
+  transition: all 0.9s;
+
+  &__content {
+    @include centerHorizontalVertical; //centuring element
+    background-color: $color-white;
+    width: 75%;
+    box-shadow: $shadow-light;
+    border-radius: 3px;
+    overflow: hidden; //to prevent image overlapping the rounded corners
+    display: table; //to give both elements the same height - parent element
+    
+    //the popup is invisible
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.25);
+
+    //animation
+    transition: all .7s .3s; //.7s is transition time/ .3s is a delay
+}
+
+  &__left {
+    width: 33%;
+    display: table-cell; //to give both elements the same height-child element
+    vertical-align: middle; //to center element vertically. in tables only!!
+    @include respond(tab-land){
+      display: block;
+       width: 100%;
+    
+    }
+   
+  }
+
+  &__right {
+    width: 66%;
+    display: table-cell;
+    vertical-align: middle; //to center element vertically. in tables only!!
+    padding: 2rem 5rem;
+    position: relative;
+    @include respond(tab-land){
+      display: block;
+      width: 100%;
+   
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    @include respond(tab-land){
+      // width: 25%;
+    }
+  }
+
+  &__img-1{
+    @include respond(tab-land){
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0%;
+    }
+  }
+
+  &__img-2{
+    @include respond(tab-land){
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      opacity: 30%;
+      background-position: cover;
+    }
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+
+    //dividing text into columns
+    column-count: 2; //to create 2 (or more) columns
+    column-gap: 4rem; //gap between two columns
+    column-rule: 1px solid $color-grey-light-2; //border in a middle of these two columns
+    -moz-column-count: 2;
+    -moz-column-gap: 4rem;
+    -moz-column-rule: 1px solid $color-grey-light-2;
+
+    hyphens: auto; // cut the word into two parts when there is not enough place. Document lang. must be defined
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  //making the popup visible
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content{
+    //here the popup becomes the target and we style content element, that is a child element of the popup
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+
+}
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      line-height: 1;
+      text-decoration: none;
+      display: inline-block;
+
+      //animation
+      transition: all 0.7s;
+    }
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
