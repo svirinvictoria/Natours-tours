@@ -50,39 +50,37 @@ function Card() {
 
   const cardsPullReactElements = cardsPull.map((cardItem, index) => {
     return (
-      <div key={index} className="row" >
-        <div className="col-1-of-3">
-          <div className="card">
-            <div className="card__side card__side--front">
-              <div className={cardItem.frontImg + " card__picture"}>&nbsp;</div>
-              
-              <h4 className="card__heading">
-                <span className={cardItem.titleBcg + " card__heading-span"}>
-                  {cardItem.title}
-                </span>
-              </h4>
-              
-              <div className="card__details">
-                <ul>
-                  <li>{cardItem.duration}</li>
-                  <li>{cardItem.quantity}</li>
-                  <li>{cardItem.guides}</li>
-                  <li>{cardItem.overnight}</li>
-                  <li>{cardItem.difficulty}</li>
-                </ul>
-              </div>
+      <div key={index} className="col-1-of-3">
+        <div className="card">
+          <div className="card__side card__side--front">
+            <div className={cardItem.frontImg + " card__picture"}>&nbsp;</div>
+
+            <h4 className="card__heading">
+              <span className={cardItem.titleBcg + " card__heading-span"}>
+                {cardItem.title}
+              </span>
+            </h4>
+
+            <div className="card__details">
+              <ul>
+                <li>{cardItem.duration}</li>
+                <li>{cardItem.quantity}</li>
+                <li>{cardItem.guides}</li>
+                <li>{cardItem.overnight}</li>
+                <li>{cardItem.difficulty}</li>
+              </ul>
             </div>
-            
-            <div className={cardItem.backImg + " card__side card__side--back "}>
-              <div className="card__cta">
-                <div className="card__price-box">
-                  <p className="card__price-only">{cardItem.only}</p>
-                  <p className="card__price-value">{cardItem.price}</p>
-                </div>
-                <a href="#popup" className="btn btn--white">
-                  {cardItem.btn}
-                </a>
+          </div>
+
+          <div className={cardItem.backImg + " card__side card__side--back "}>
+            <div className="card__cta">
+              <div className="card__price-box">
+                <p className="card__price-only">{cardItem.only}</p>
+                <p className="card__price-value">{cardItem.price}</p>
               </div>
+              <a href="#popup" className="btn btn--white">
+                {cardItem.btn}
+              </a>
             </div>
           </div>
         </div>
@@ -90,9 +88,7 @@ function Card() {
     );
   });
 
-  return <div>{cardsPullReactElements}</div>;
-
-
+  return <div className="row">{cardsPullReactElements}</div>;
 }
 
 export default Card;

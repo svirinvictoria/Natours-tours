@@ -1,60 +1,46 @@
+
 function Features() {
-  return (
-    <section className="section-features">
-      <div className="row">
-        <div className="col-1-of-4">
-          <div className="feature-box">
-            <i className="feature-box__icon icon-basic-world"></i>
-            <h3 className="heading-tertiary u-margin-bottom-small">
-              Explore the world
-            </h3>
-            <p className="feature-box__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-              rerum inventore.
-            </p>
-          </div>
-        </div>
+  const featuresPull = [
+    {
+      picture: "",
+      header: " Explore the world",
+      text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rerum inventore.",
+    },
+    {
+      picture: "",
+      header: " Meet nature",
+      text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rerum inventore.",
+    },
+    {
+      picture: "",
+      header: " Find your way",
+      text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rerum inventore.",
+    },
+    {
+      picture: "",
+      header: " Live a healthier life",
+      text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rerum inventore.",
+    },
+  ];
 
-        <div className="col-1-of-4">
-          <div className="feature-box">
-            <i className="feature-box__icon icon-basic-compass"></i>
-            <h3 className="heading-tertiary u-margin-bottom-small">
-              Meet nature
-            </h3>
-            <p className="feature-box__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-              rerum inventore.
-            </p>
-          </div>
-        </div>
-
-        <div className="col-1-of-4">
-          <div className="feature-box">
-            <i className="feature-box__icon icon-basic-map"></i>
-            <h3 className="heading-tertiary u-margin-bottom-small">
-              Find your way
-            </h3>
-            <p className="feature-box__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-              rerum inventore.
-            </p>
-          </div>
-        </div>
-
-        <div class="col-1-of-4">
-          <div class="feature-box">
-            <i class="feature-box__icon icon-basic-heart"></i>
-            <h3 class="heading-tertiary u-margin-bottom-small">
-              Live a healthier life
-            </h3>
-            <p class="feature-box__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-              rerum inventore.
-            </p>
-          </div>
+  const featuresPullReactElements = featuresPull.map((item, index) => {
+    return (
+      <div className="col-1-of-4">
+        <div className="feature-box">
+          <i className="feature-box__icon icon-basic-world"></i>
+          <h3 className="heading-tertiary u-margin-bottom-small">
+            {item.header}
+          </h3>
+          <p className="feature-box__text">{item.text}</p>
         </div>
       </div>
-    </section>
+    );
+  });
+
+  return (
+    <div className="section-features">
+      <div className="row">{featuresPullReactElements}</div>
+    </div>
   );
 }
 

@@ -1,5 +1,5 @@
-import nat8 from "../img/nat-8.jpg"
-import nat9 from "../img/nat-9.jpg"
+import nat8 from "../img/nat-8.jpg";
+import nat9 from "../img/nat-9.jpg";
 
 
 function StoryItem(){
@@ -7,13 +7,13 @@ function StoryItem(){
         {
             header:" I had the best week ever with my family", 
             name: "Mary Smith",
-            photo:nat8,
+            photo: nat8,
             text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti nostrum suscipit assumenda? Consequatur vitae sunt impedit id explicabo, dolores ea eos, quos fugit officia hic. Illo non cumque modi quas? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam, omnis."
         },
         {
             header:" Wow! My life is completly different now", 
             name:"Jonh Wilson",
-            photo:nat9,
+            photo: nat9,
             text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti nostrum suscipit assumenda? Consequatur vitae sunt impedit id explicabo, dolores ea eos, quos fugit officia hic. Illo non cumque modi quas? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam, omnis."
         }
     ];

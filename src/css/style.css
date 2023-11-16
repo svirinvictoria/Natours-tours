@@ -700,7 +700,8 @@ body {
   .footer__list {
     list-style: none; }
   .footer__item {
-    display: inline-block; }
+    display: inline-block;
+    margin-right: 1.5rem; }
     .footer__item:not(:last-child) {
       margin-right: 1.5rem; }
   .footer__link:link, .footer__link:visited {
