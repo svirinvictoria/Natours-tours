@@ -1,4 +1,9 @@
-import logoFooter from "../img/logo-green-2x.png";
+import React from "react";
+import logoGreen_2 from "../img/logo-green-2x.png";
+import logoGreen_1 from "../img/logo-green-1x.png";
+import logoGreenSmall_2 from "../img/logo-green-small-2x.png";
+import logoGreenSmall_1 from "../img/logo-green-small-1x.png";
+
 function Footer() {
   const footerMenu = [
     "Company",
@@ -25,7 +30,13 @@ function Footer() {
   return (
     <footer class="footer">
       <div class="footer__logo-box">
-        <img class="footer__logo" src={logoFooter} alt="" />
+        <picture class="footer__logo">
+          <source
+            srcSet = { `${logoGreenSmall_1} 1x , ${logoGreenSmall_2} 2x` } 
+            media="(max-width: 37.5em)"
+            /> 
+          <img srcSet={`${logoGreen_1} 1x, ${logoGreen_2} 2x`} alt="" src={logoGreen_2}/>
+        </picture>
       </div>
 
       <div class="row">
