@@ -44,44 +44,29 @@ function About(){
 
               <img
                 srcSet={`${nat1} 300w, ${nat1Large} 1000w`}  
-                sizes="(max-width:900px) 20vw, (max-width:600px) 30vw, 300px"
-                alt="photo 1"
+                sizes="(max-width:56.25em) 20vw, (max-width:37.5em) 30vw, 300px"
+                alt=""
                 class="composition__photo composition__photo--p1"
                 src={nat1Large}
               />
 
 <img
                 srcSet={`${nat2} 300w, ${nat2Large} 1000w`}  
-                sizes="(max-width:900px) 20vw, (max-width:600px) 30vw, 300px"
-                alt="photo 2"
+                sizes="(max-width:56.25em) 20vw, (max-width:37.5em) 30vw, 300px"
+                alt=""
                 class="composition__photo composition__photo--p2"
                 src={nat2Large}
               />
 
 <img
                 srcSet={`${nat3} 300w, ${nat3Large} 1000w`}  
-                sizes="(max-width:900px) 20vw, (max-width:600px) 30vw, 300px"
-                alt="photo 3"
+                sizes="(max-width:56.25em) 20vw, (max-width:37.5em) 30vw, 300px"
+                alt=""
                 class="composition__photo composition__photo--p3"
                 src={nat3Large}
               />
 
 
-              {/* <img
-                src={nat1Large}
-                alt="photo 1"
-                className="composition__photo composition__photo--p1"
-              /> */}
-              {/* <img
-                src={nat2Large}
-                alt="photo 2"
-                class="composition__photo composition__photo--p2"
-              />
-              <img
-                src={nat3Large}
-                alt="photo 3"
-                className="composition__photo composition__photo--p3"
-              /> */}
             </div>
           </div>
         </div>

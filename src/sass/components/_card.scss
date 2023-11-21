@@ -12,6 +12,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 5px;
     overflow: hidden; //this hides the part of children elements that overflow the parent element
@@ -177,10 +178,11 @@
 
 
   ////////////////////////////////////////////////////////////////////
-  @include respond(tab-port){
+  /// this is tab-port media query with additional condition for touch devices
+  @media only screen and (max-width: 56.25em),
+  only screen and (hover: none){
     //functionality
   height: auto;
-  // border-radius: 5px;
   background-color: $color-white;
   box-shadow:$shadow-dark;
 
