@@ -13,7 +13,7 @@ The website has almost no functionality! It's all about CSS and SCSS features.
 
 React features used in this site:
 * Mapping
-* 
+
 ### 
 ###
 
